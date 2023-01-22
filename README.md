@@ -52,4 +52,28 @@ There will be a total of 72,458 employees that are at retiremenet age and elgibl
 #### Research question #2: 
 Are there enough qualified, retirement-ready employees in the departments to mentor the next generation of Pewlett Hackard employees?
 
+After reviewing the data, there is concerning low number of mentors for each one of the job classifications. There are less than 10% of the employee base that meet the criteria management is look for to participate in the mentorship program. Most importantly, the highest population of the retirees are Senior Engineers. Unfortunately, a mere 1% of the qualified mentors are in the senior engineer category. There are no qualified mentors in the Manager department but with only two retiring, it should not be a big issue to train replacements.
+
+![](https://github.com/TONY-H83/Pewlett-Hackard-Analysis/blob/main/Screenshot%202023-01-21%20at%203.07.21%20PM.png)
+
+#### Additional queries to further assist the management team:
+
+The first additional query I created was add a new table that listed the various titles with one column showing ``total_employee_count`` and ``total_retiree_count``. I used the following code to create the new table called ``employee_total_counts``.
+
+> - ``SELECT T.TITLE, COUNT(E.EMP_NO) AS TOTAL_EMP_COUNT, COUNT(R.EMP_NO) AS RETIREE_COUNT
+INTO EMPLOYEE_TOTAL_COUNTS
+FROM EMPLOYEES E
+LEFT JOIN TITLES T ON (E.EMP_NO = T.EMP_NO)
+LEFT JOIN UNIQUE_TITLES R ON (R.EMP_NO = E.EMP_NO)
+GROUP BY T.TITLE``
+
+The second query I created was using the new table ``employee_totals``. I multiplied the ``total_retiree_count`` by 100 then divided that by ``employee_totals`` into a new column named ``percentage_of_dept_retiring``. This will allow management to quickly see just how much of a specific department is about to retire.
+
+> - ``SELECT TITLE, TOTAL_EMP_COUNT,RETIREE_COUNT TOTAL_RETIREE_COUNT,RETIREE_COUNT * 100/TOTAL_EMP_COUNTAS PERCENTAGE_OF_DEPT_RETIRING
+FROM EMPLOYEE_TOTAL_COUNTS
+ORDER BY PERCENTAGE_OF_DEPT_RETIRING DESC``
+
+![](https://github.com/TONY-H83/Pewlett-Hackard-Analysis/blob/main/Screenshot%202023-01-21%20at%208.55.28%20PM.png)
+
+
 
