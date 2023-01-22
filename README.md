@@ -58,22 +58,18 @@ After reviewing the data, there is a concerning low number of mentors for each o
 
 #### Additional queries to further assist the management team:
 
-The first additional query I created was add a new table that listed the various titles with one column showing ``total_employee_count`` and ``total_retiree_count``. I used the following code to create the new table called ``employee_total_counts``.
+The first additional query I created was add a new table that listed the various titles with one column showing a count of all current employees grouped by their title. I then had to use ``count distinct`` to remove the duplicate rows and create a new table.
 
-> - ``SELECT T.TITLE, COUNT(E.EMP_NO) AS TOTAL_EMP_COUNT, COUNT(R.EMP_NO) AS RETIREE_COUNT
-INTO EMPLOYEE_TOTAL_COUNTS
-FROM EMPLOYEES E
-LEFT JOIN TITLES T ON (E.EMP_NO = T.EMP_NO)
-LEFT JOIN UNIQUE_TITLES R ON (R.EMP_NO = E.EMP_NO)
-GROUP BY T.TITLE``
+Lastly to get a table that had the current employees grouped by title, joined with the retiring employees.
 
-The second query I created was using the new table ``employee_totals``. I multiplied the ``total_retiree_count`` by 100 then divided that by ``employee_totals`` into a new column named ``percentage_of_dept_retiring``. This will allow management to quickly see just how much of a specific department is about to retire.
+![](https://github.com/TONY-H83/Pewlett-Hackard-Analysis/blob/main/Losses.png)
 
-> - ``SELECT TITLE, TOTAL_EMP_COUNT,RETIREE_COUNT TOTAL_RETIREE_COUNT,RETIREE_COUNT * 100/TOTAL_EMP_COUNTAS PERCENTAGE_OF_DEPT_RETIRING
-FROM EMPLOYEE_TOTAL_COUNTS
-ORDER BY PERCENTAGE_OF_DEPT_RETIRING DESC``
 
-![](https://github.com/TONY-H83/Pewlett-Hackard-Analysis/blob/main/Screenshot%202023-01-21%20at%208.55.28%20PM.png)
+The last query I created was using the new table "extra_query". I multiplied the retiring employee count by 100 then divided that by total current employees into a new column named ``percentage_of_dept_retiring``. This will allow management to quickly see just how much of a specific department is about to retire.
+
+
+![](https://github.com/TONY-H83/Pewlett-Hackard-Analysis/blob/main/LOSS%20PERCENTAGE.png)
+
 
 
 
