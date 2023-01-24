@@ -54,7 +54,7 @@ Are there enough qualified, retirement-ready employees in the departments to men
 
 After reviewing the data, there is a concerning low number of mentors for each one of the job classifications. There are less than 10% of the employee base that meet the criteria management is look for to participate in the mentorship program. Most importantly, the highest population of the retirees are Senior Engineers. Unfortunately, a mere 1% of the qualified mentors are in the senior engineer category. There are no qualified mentors in the Manager department but with only two retiring, it should not be a big issue to train replacements.
 
-![](https://github.com/TONY-H83/Pewlett-Hackard-Analysis/blob/main/Screenshot%202023-01-21%20at%203.07.21%20PM.png)
+![](https://github.com/TONY-H83/Pewlett-Hackard-Analysis/blob/main/Mentorship%20Elgibility.png)
 
 #### Additional queries to further assist the management team:
 
