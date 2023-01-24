@@ -24,6 +24,7 @@
 --In the Employee_Database_challenge.sql file, write a query to create a Mentorship Eligibility table that holds the employees 
 --who are eligible to participate in a mentorship program.
 
+
 -- SELECT DISTINCT ON (E.EMP_NO) E.EMP_NO,
 -- E.FIRST_NAME,
 -- E.LAST_NAME,
@@ -36,4 +37,5 @@
 -- LEFT JOIN DEPT_EMP DE ON (E.EMP_NO = DE.EMP_NO)
 -- LEFT JOIN TITLES T ON (E.EMP_NO = T.EMP_NO)
 -- WHERE E.birth_date BETWEEN '1965-01-01' AND '1965-12-31'
+-- AND DE.TO_DATE = '9999-01-01'
 -- ORDER BY EMP_NO
